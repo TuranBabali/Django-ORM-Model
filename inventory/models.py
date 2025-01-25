@@ -2,6 +2,7 @@ import uuid
 
 from django.db import models
 
+
 class Product(models.Model):
     pid = models.CharField(max_length=255)
     name = models.CharField(max_length=100)
@@ -10,7 +11,8 @@ class Product(models.Model):
     is_digital = models.BooleanField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    is_active = models.BooleanField()   
+    is_active = models.BooleanField()
+
 
 class ProductLine(models.Model):
     price = models.DecimalField()
@@ -20,16 +22,19 @@ class ProductLine(models.Model):
     order = models.IntegerField()
     weight = models.FloatField()
 
+
 class ProductImage(models.Model):
     name = models.CharField(max_length=100)
     alternative_text = models.CharField(max_length=100)
     url = models.ImageField()
     order = models.IntegerField()
 
+
 class Category(models.Model):
     name = models.CharField(max_length=100)
     slug = models.SlugField()
     is_active = models.BooleanField()
+
 
 class SeasonalEvents(models.Model):
     start_date = models.DateTimeField()
